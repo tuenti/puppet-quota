@@ -7,8 +7,7 @@ class quota::params {
       ]
     }
     'RedHat': {
-      $packages = [
-        'quota',
+      $packages = 'quota'
       ]
     }    
 }
