@@ -3,7 +3,7 @@ class quota::params {
     'Debian': {
       $packages = [
         'quota',
-        'quotatool,
+        'quotatool',
       ]
     }
     'RedHat': {
