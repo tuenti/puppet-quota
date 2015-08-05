@@ -10,4 +10,5 @@ class quota::params {
       $packages = 'quota'
       ]
     }    
+  }
 }
