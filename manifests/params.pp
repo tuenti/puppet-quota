@@ -1,10 +1,7 @@
 class quota::params {
   case $::osfamily {
     'Debian': {
-      $packages = [
-        'quota',
-        'quotatool',
-      ]
+      $packages = [ 'quota', 'quotatool' ]
     }
     'RedHat': {
       $packages = 'quota'
