@@ -1,11 +1,9 @@
 # Class: quota
 #
 #
-class quota {
-  $packages = [
-    'quota',
-    'quotatool',
-  ]
+class quota inherits quota::params{
+  $packages = $::quota::params::packages,
+
   package { $packages:
     ensure => installed,
   }
