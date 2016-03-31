@@ -24,12 +24,12 @@ Puppet::Type.newtype(:quota) do
 
   newparam(:block_hard_limit) do
     desc "Hard limit block size"
-    newvalues(/\d+[KMGT]b/)
+    newvalues(/\d+/)
   end
 
   newparam(:block_soft_limit) do
     desc "Soft limit block size"
-    newvalues(/\d+[KMGT]b/)
+    newvalues(/\d+/)
   end
 
   newparam(:inode_hard_limit) do
