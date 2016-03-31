@@ -3,12 +3,12 @@ Puppet::Type.newtype(:quota) do
   ensurable
 
   newparam(:name) do
-    desc "The user or group on which quota needs to be set"
+    desc "The user(id) or group(id) on which quota needs to be set"
     isnamevar
   end
 
   newparam(:type) do
-    desc "Set quota on user or group"
+    desc "Set quota on user(id) or group(id)"
     newvalues(:user, :group)
     defaultto :user
   end
@@ -24,21 +24,21 @@ Puppet::Type.newtype(:quota) do
 
   newparam(:block_hard_limit) do
     desc "Hard limit block size"
-    newvalues(/\d+/)
+    newvalues(/\d+[KMGT]b/)
   end
 
   newparam(:block_soft_limit) do
     desc "Soft limit block size"
-    newvalues(/\d+/)
+    newvalues(/\d+[KMGT]b/)
   end
 
   newparam(:inode_hard_limit) do
     desc "Hard limit inode"
-    newvalues(/\d+/)
+    newvalues(/\d+[KMGT]b/)
   end
 
   newparam(:inode_soft_limit) do
     desc "Soft limit inode"
-    newvalues(/\d+/)
+    newvalues(/\d+[KMGT]b/)
   end
 end
