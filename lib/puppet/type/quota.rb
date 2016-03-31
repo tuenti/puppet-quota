@@ -34,11 +34,11 @@ Puppet::Type.newtype(:quota) do
 
   newparam(:inode_hard_limit) do
     desc "Hard limit inode"
-    newvalues(/\d+[KMGT]b/)
+    newvalues(/\d+/)
   end
 
   newparam(:inode_soft_limit) do
     desc "Soft limit inode"
-    newvalues(/\d+[KMGT]b/)
+    newvalues(/\d+/)
   end
 end
