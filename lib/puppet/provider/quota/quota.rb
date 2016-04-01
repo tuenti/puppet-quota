@@ -15,6 +15,13 @@ Puppet::Type.type(:quota).provide(:quota) do
   end
 
   def exists?
-    repquota('-u',"#{@resource[:name]}",'| tr -s \" \" | cut -d \" \" -f3 | grep \'^0$\'')
+    cmd = [command(:repquota), '-u', "#{@resource[:name]}"].join(' ')
+    out = execute(cmd, {:failonfail => true, :override_locale => true, :squelch => false, :combine => true})
+    if out.include? "none"
+      return false
+    else
+      return true
+    end
   end
+
 end
