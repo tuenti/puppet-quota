@@ -61,10 +61,10 @@ quota { 'username':
 ## Reference
 
 * **name**: This can be filled up with either a username, groupname, UID or GID
-* **ensure**: Values can be __present__ or __absent__
-* **type**: Can be __user__ or __group__
+* **ensure**: Values can be _present_ or _absent_
+* **type**: Can be _user_ or _group_
 * **filesystem**: The location of the volume where quota will be set
-* **remote**: __true__ or __false__ to determine if we are dealing with a remote filesystem
+* **remote**: _true_ or _false_ to determine if we are dealing with a remote filesystem
 * **inode_soft_limit**: Should be an integer (0 = unlimited)
 * **inode_hard_limit**: Should be an integer (0 = unlimited)
 * **block_soft_limit**: Should be an integer in bytes (0 = unlimited)
