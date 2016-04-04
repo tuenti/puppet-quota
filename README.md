@@ -28,11 +28,11 @@ that should be performed manually.
 ### What quota affects
 
 * This module handles the installation of the following packages
- * Debian
-  * quota
-  * quotatool
- * Red Hat
-  * quota
+  * Debian
+    * quota
+    * quotatool
+  * Red Hat
+    * quota
 * Apart from that this module sets the quota type and provider that
   can be used to st the block and inode limits per user/group
 
