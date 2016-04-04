@@ -3,15 +3,14 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with quota](#setup)
+2. [Module Description](#module-description)
+3. [Setup](#setup)
     * [What quota affects](#what-quota-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with quota](#beginning-with-quota)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+4. [Usage](#usage)
+5. [Reference](#reference)
+6. [Limitations](#limitations)
+7. [Contributors](#contributors)
 
 ## Overview
 
@@ -20,59 +19,62 @@ of the users and groups on your server infrastructure.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+We use this module to set the block and inode quota for users and groups on our servers.
+This module **does not** enable quota on the systems so this is still an action
+that should be performed manually.
 
 ## Setup
 
 ### What quota affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* This module handles the installation of the following packages
+ * Debian
+  * quota
+  * quotatool
+ * Red Hat
+  * quota
+* Apart from that this module sets the quota type and provider that
+  can be used to st the block and inode limits per user/group
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
-
-### Beginning with quota
-
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+Make sure that you have already manually enabled quota on the disk/volume
+where you wish to manage the quota with this module.
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+Example:
+```ruby
+quota { 'username': 
+  name             => 'username',
+  ensure           => 'present',
+  type             => 'user',
+  filesystem       => '/srv/nfs',
+  remote           => false,
+  inode_soft_limit => '0',
+  inode_hard_limit => '0',
+  block_soft_limit => '94371840',
+  block_hard_limit => '104857600',
+}
+```
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+* **name**: This can be filled up with either a username, groupname, UID or GID
+* **ensure**: Values can be __present__ or __absent__
+* **type**: Can be __user__ or __group__
+* **filesystem**: The location of the volume where quota will be set
+* **remote**: __true__ or __false__ to determine if we are dealing with a remote filesystem
+* **inode_soft_limit**: Should be an integer (0 = unlimited)
+* **inode_hard_limit**: Should be an integer (0 = unlimited)
+* **block_soft_limit**: Should be an integer in bytes (0 = unlimited)
+* **block_hard_limit**: Should be an integer in bytes (0 = unlimited)
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+This module with its type and provider have only been tested on Debian systems.
 
-## Development
+## Contributors
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+* Dimitri Steyaert <dimitri.steyaert@staff.telenet.be>
+* Christof Bruyland <christof.bruyland@staff.telenet.be>
