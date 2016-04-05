@@ -1,5 +1,7 @@
 # Quota
 
+[![Build Status](http://gitlab.prd.hostengine.be/puppet/puppet-quota/badges/production/build.svg)](http://gitlab.prd.hostengine.be/puppet/puppet-quota)
+
 #### Table of Contents
 
 1. [Overview](#overview)
