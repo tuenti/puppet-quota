@@ -1,0 +1,13 @@
+{
+  "name": "puppet-quota",
+  "version": "1.0.0",
+  "author": "Dimitri Steyaert",
+  "summary": "This module provides a quota type and provider that lets you manage user quotas",
+  "license": "Apache-2.0",
+  "source": "http://gitlab.prd.hostengine.be/puppet/puppet-quota",
+  "project_page": "http://gitlab.prd.hostengine.be/puppet/puppet-quota",
+  "issues_url": "http://gitlab.prd.hostengine.be/puppet/puppet-quota/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
