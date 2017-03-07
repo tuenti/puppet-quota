@@ -78,5 +78,4 @@ This module with its type and provider have only been tested on Debian systems.
 
 ## Contributors
 
-* Dimitri Steyaert <dimitri.steyaert@staff.telenet.be>
-* Christof Bruyland <christof.bruyland@staff.telenet.be>
+* Dimitri Steyaert <github@dimitri.eu>
