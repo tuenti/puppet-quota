@@ -10,7 +10,8 @@ class quota inherits quota::params{
   }
 
   exec {'enable_quota':
-    command     => '/usr/bin/quotaon -a',
+    command     => 'quotaon -a',
+    path        => '/usr/bin:/usr/sbin',
     refreshonly => true,
   }
 }
